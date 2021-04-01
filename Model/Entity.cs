@@ -5,6 +5,7 @@ namespace Model
     public abstract class Entity
     {
        public Guid Id { get; set; }
+        protected abstract void Validate();
         public Entity()
         {
             Id = Guid.NewGuid();
@@ -17,7 +18,7 @@ namespace Model
             if (ReferenceEquals(null, entity))
                 return false;
 
-            return Id.Equals(entity.Id);
+            return Id.Equals(entity.Id); 
         }
         public static bool operator ==(Entity entity,Entity entity1) 
         {
